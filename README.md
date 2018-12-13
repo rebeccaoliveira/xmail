@@ -1,4 +1,4 @@
-## Xmail - A Gmail clone:
+# Xmail - A Gmail Clone
 
 
 ## Main Objective
