@@ -1,72 +1,68 @@
+## Xmail - A Gmail clone:
+
+***
+
 ## Main Objective
 
 Google is a reference in design and hight technologies.
 
-Thinking of this, the idea of this project is to recreate a Gmail, applying in a single project Material UI, JSS, React, React Router and Redux, with responsive design, to practice and learn all this technologies and frameworks together.
+Thinking of this, the idea of this project is to recreate a Gmail, applying in a single project Material UI, JSS, React, React Router and Redux, with responsive design, to learn/practice all this technologies and frameworks together.
 
 ### Roadmap - v.0.1
 
-1.  - [x]   HTML and CSS: To replicate the design of Gmail using Material UI/JSS.
+###### HTML and CSS: To replicate the design of Gmail using Material UI/JSS.
 
-  1.1 - [x]  Mail list view - Index list / Favorites / Snoozed...etc.
+- [x]  Mail list view - Index list / Favorites / Snoozed...etc. (img. 1)
 
-      1.2 - [x]  Compose email
+- [x]  Compose email (img. 2)
 
-      1.3 - [x]  Opened email
+- [x]  Opened email (img.3)
 
-      1.4 - [x]  Reply mail
+- [x]  Reply mail (img.3)
 
-2. - [ ] JS: To use React, React Router and Redux to create an integration between interface and user.
+**Img. 01**
 
-  2.1 - [ ]  Hamburger menu with drawer effects
+![List Emails](./screens/img01.png)
 
-  2.2 - [ ]  Click on 'compose' button and open a window for new email  
+**Img. 02**
 
-    2.2.1 - [ ]  Toolbar actions (minimize / maximize / close window)
+![Email Compose](./screens/img02.png)
 
-    2.2.2 - [ ]  To include some previous email for 'to' field, to user select
+**Img. 03**
 
-    2.2.3 - [ ]  To include subject
+![Opened Email](./screens/img03.png)
 
-    2.2.4 - [ ]  To include text content field
 
-    2.2.5 - [ ]  Actions in 'send bar'
+###### JS: To use React, React Router and Redux to create an integration between interface and user.
 
-      2.2.5.1 - [ ]  Include some text editor for edit text area
-
-      2.2.5.2 - [ ]  'Send' button, to send email    
-
-      2.2.5.3 - [ ]  'Delete' button, to exclude email
-
-      2.2.5.4 - [ ]  Save in Draft when close the window
-
-    2.3 - [ ]  After 'Send' email appears on 'Sent' list
-
-    2.4 - [ ]  Aborted email appears on 'Draft' list
-
-    2.5 - [ ]  Inbox appear an email model  
-
-      2.5.1 - [ ]  Actions directly in email list (arquive, snooze,favorite...etc)
-
-      2.5.2 - [ ]  Open email
-
-        2.5.2.1 - [ ]  Toolbar in email for actions (arquive, snooze,favorite...etc)
-
-        2.5.2.2 - [ ]  Actions in button 'Reply'
-
-      2.5.3 - [ ]  Open box 'Reply'
-
-          2.5.3.1 - [ ]  The same actions used in 'Compose' process.
-
-  3. - [ ]  To write and run a test for every new feature
-
-  4. - [ ]  Split into small reusable components and publish a package on NPM
+- [ ]  Hamburger menu with drawer effects
+- [ ]  Click on 'Compose' button and open a window for new email  
+    - [ ]  Toolbar actions (minimize / maximize / close window)
+    - [ ]  To include some previous email for 'to' field, to user select
+    - [ ]  To include subject
+    - [ ]  To include text content field
+    - [ ]  Actions in 'send bar'
+      - [ ]  Include some text editor for edit text area
+      - [ ]  'Send' button, to send email    
+      - [ ]  'Delete' button, to exclude email
+      - [ ]  Save in Draft when close the window
+    - [ ]  After 'Send' email appears on 'Sent' list
+    - [ ]  Aborted email appears on 'Draft' list
+    - [ ]  Inbox appear an email model  
+      - [ ]  Actions directly in email list (archive, snooze,favorite...etc)
+      - [ ]  Open email
+        - [ ]  Toolbar in email for actions (archive, snooze,favorite...etc)
+        - [ ]  Actions in button 'Reply'
+      - [ ]  Open box 'Reply'
+          - [ ]  The same actions used in 'Compose' process.
+- [ ]  To write and run a test for every new feature
+- [ ]  Split into small reusable components and publish a package on NPM
 
 ### Disclaimer
 
-**This project was created with the only proposal for studies and coding trainee, never to create a copy of Google products.**
+##### This project was created with the only proposal for studies and coding trainee, never to create a copy of Google products as a business.
 
-All rights of Gmail or any [Google](goole.com) products belongs to [Alphabet Inc.](https://abc.xyz/)
+###### All rights of Gmail or any [Google](goole.com) products belongs to [Alphabet Inc.](https://abc.xyz/)
 
 ### Tecnologies
 
