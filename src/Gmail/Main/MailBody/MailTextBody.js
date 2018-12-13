@@ -26,9 +26,6 @@ import MenuTask from '../MenuControler/MenuTask'
 import MailSendBar from './MailSendBar'
 
 
-//Images
-import avatar from '../../images/avatar.jpg'
-
 //icons
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -49,13 +46,6 @@ const styles = theme => ({
   },
   button: {
     margin: 0,
-  },
-  divTable: {
-    border: '1px solid #dadce0',
-    borderRadius: '8px',
-    '&:hover': {
-      transition: 'border .15s cubic-bezier(0.4,0.0,0.2,1),box-shadow .15s cubic-bezier(0.4,0.0,0.2,1)',
-    },
   },
   buttonText: {
     textTransform: 'capitalize',
@@ -82,53 +72,36 @@ function MailReply(props) {
   return(
       <Grid container className={classes.root}>
         <Grid xs={1}  item className={classes.gridAvatar}>
-          <Hidden xsDown>
-            <Avatar
-              alt="Celso Fernandes"
-              src={avatar}
-              size="small"
-            />
-          </Hidden>
         </Grid>
         <Grid item xs={12} sm={11}>
-          <Grid container className={classes.divTable} style={{display: 'flex', flexDirection: 'column'}}>
+          <Grid container style={{display: 'flex', flexDirection: 'column'}}>
             <Grid item>
-              <Table>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>
-                      <div>
-                      <Button className={classes.buttonText}>To:</Button>
-                      <Input />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Grid>
-            <Grid item>
-              <Table>
-                <TableBody>
-                  <TableRow>
-                    <TableCell style={{padding:28}}>
-                      <Typography variant="body1" gutterBottom>
-                        OMG, who will save us?!
-                        <br />
-                      </Typography>
-                      <Typography variant="h6" gutterBottom>
-                        I need a Hitchhiker's Guide to the Galaxy!
-                        <br />
-                      </Typography>
+              <Typography variant="body2" gutterBottom>
+              We are the second most intelligent creatures
+               were, of course, dolphins who curiously
+               enough had long known of the impending
+               destruction of the planet Earth.
+               <br />
+               We had
+               made many attempts to alert manking to the
+               danger, but most of our communications
+               were misinterpreted as amusing attempts to
+               punch footballs or whistle for tidbits, so
+               we eventually decided we would leave
+               Earth by our own means.
+              <br />
+              Our last ever dolphin message was
+               misinterpreted as a surprisingly
+               sophisticated attempt to do a double-
+               backward somersault through a hoop while
+               whistling the "Star-Spangled Banner" but
+               in fact the message was this...
+               <br />
 
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <MailSendBar />
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              </Typography>
+              <Typography variant="h6" gutterBottom>
+                "So long and thanks for all the fish."
+              </Typography>
             </Grid>
           </Grid>
         </Grid>

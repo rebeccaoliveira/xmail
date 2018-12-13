@@ -21,7 +21,7 @@ import Star from '@material-ui/icons/StarBorder'
 import Reply from '@material-ui/icons/Reply'
 import More from '@material-ui/icons/MoreVert'
 //Images
-import avatar from '../../images/avatar.jpg'
+import dolphin from '../../images/dolphin.jpg'
 
 
 const styles = theme => ({
@@ -50,15 +50,15 @@ function MailOwnerBar(props) {
       <Grid item xs={1} className={classes.gridAvatar}>
         <Hidden smDown>
           <Avatar
-            alt="Celso Fernandes"
-            src={avatar}
+            alt="Dolphins"
+            src={dolphin}
             size="small"
           />
         </Hidden>
       </Grid>
       <Grid className={classes.gridText} item xs={8} sm={7}>
-        <Typography className={classes.pText}variant="subtitle1">You think water moves fast?</Typography>
-        <Typography className={classes.pText}variant="caption">From: Shark</Typography>
+        <Typography className={classes.pText}variant="subtitle1">"So long and thanks for all the fish."</Typography>
+        <Typography className={classes.pText}variant="caption">From: Dolphins</Typography>
       </Grid>
       <Grid item xs={12} sm={4} className={classes.gridIcons}>
         <IconButton className={classes.button} data-tooltip="Star" aria-label="star">

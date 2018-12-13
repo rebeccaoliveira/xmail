@@ -17,6 +17,7 @@ import MailTitle from './MailTitle'
 import MailOwnerBar from './MailOwnerBar'
 import MailReply from './MailReply'
 import MailReplyButton from './MailReplyButton'
+import MailTextBody from './MailTextBody'
 
 const styles = theme => ({
   root: {
@@ -34,6 +35,7 @@ function MailContent(props) {
         <MailTitle />
         <MailOwnerBar />
         <Divider />
+        <MailTextBody />
         <MailReply />
         <MailReplyButton />
       </Grid>

@@ -34,7 +34,7 @@ const styles = theme => ({
 const Main = ({classes}) => (
   <Grid className={classes.container}>
     <div className={classes.toolbar} />
-    <ListBody />
+    <MailBody />
   </Grid>
 )
 

@@ -30,7 +30,7 @@ function MailTitle(props) {
     <Grid container>
       <Grid item xs={1} />
       <Grid item xs={7}>
-        <h2 className={classes.text}>You think water moves fast? You should see ice</h2>
+        <h2 className={classes.text}>"We leap madly, desperately. Higher and higher..."</h2>
       </Grid>
       <Grid item xs={4} className={classes.gridIcons}>
         <IconButton className={classes.button} data-tooltip="Print" aria-label="print">
