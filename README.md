@@ -1,6 +1,5 @@
 ## Xmail - A Gmail clone:
 
-***
 
 ## Main Objective
 
