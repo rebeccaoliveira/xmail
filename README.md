@@ -1,44 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Main Objective
 
-## Available Scripts
+Google is a reference in design and hight technologies.
 
-In the project directory, you can run:
+Thinking of this, the idea of this project is to recreate a Gmail, applying in a single project Material UI, JSS, React, React Router and Redux, with responsive design, to practice and learn all this technologies and frameworks together.
 
-### `npm start`
+### Roadmap - v.0.1
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  - [x]   HTML and CSS: To replicate the design of Gmail using Material UI/JSS.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+  1.1 - [x]  Mail list view - Index list / Favorites / Snoozed...etc.
 
-### `npm test`
+      1.2 - [x]  Compose email
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      1.3 - [x]  Opened email
 
-### `npm run build`
+      1.4 - [x]  Reply mail
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. - [ ] JS: To use React, React Router and Redux to create an integration between interface and user.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+  2.1 - [ ]  Hamburger menu with drawer effects
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  2.2 - [ ]  Click on 'compose' button and open a window for new email  
 
-### `npm run eject`
+    2.2.1 - [ ]  Toolbar actions (minimize / maximize / close window)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    2.2.2 - [ ]  To include some previous email for 'to' field, to user select
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    2.2.3 - [ ]  To include subject
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    2.2.4 - [ ]  To include text content field
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    2.2.5 - [ ]  Actions in 'send bar'
 
-## Learn More
+      2.2.5.1 - [ ]  Include some text editor for edit text area
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+      2.2.5.2 - [ ]  'Send' button, to send email    
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      2.2.5.3 - [ ]  'Delete' button, to exclude email
+
+      2.2.5.4 - [ ]  Save in Draft when close the window
+
+    2.3 - [ ]  After 'Send' email appears on 'Sent' list
+
+    2.4 - [ ]  Aborted email appears on 'Draft' list
+
+    2.5 - [ ]  Inbox appear an email model  
+
+      2.5.1 - [ ]  Actions directly in email list (arquive, snooze,favorite...etc)
+
+      2.5.2 - [ ]  Open email
+
+        2.5.2.1 - [ ]  Toolbar in email for actions (arquive, snooze,favorite...etc)
+
+        2.5.2.2 - [ ]  Actions in button 'Reply'
+
+      2.5.3 - [ ]  Open box 'Reply'
+
+          2.5.3.1 - [ ]  The same actions used in 'Compose' process.
+
+  3. - [ ]  To write and run a test for every new feature
+
+  4. - [ ]  Split into small reusable components and publish a package on NPM
+
+### Disclaimer
+
+**This project was created with the only proposal for studies and coding trainee, never to create a copy of Google products.**
+
+All rights of Gmail or any [Google](goole.com) products belongs to [Alphabet Inc.](https://abc.xyz/)
+
+### Tecnologies
+
+[Material UI](material-ui.com)
+
+[JSS](cssinjs.org)
+
+[React](reactjs.org)
+
+[React Router](reacttraining.com/react-router/)
+
+[Redux](redux.js.org)
+
+[Github](github.com)
