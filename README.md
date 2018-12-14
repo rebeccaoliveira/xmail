@@ -3,65 +3,40 @@
 
 ## Main Objective
 
-Google is a reference in design and hight technologies.
+Google is a reference in design and high technologies.
 
-Thinking of this, the idea of this project is to recreate a Gmail, applying in a single project Material UI, JSS, React, React Router and Redux, with responsive design, to learn/practice all this technologies and frameworks together.
+With this in mind, the main idea of this project is to recreate a Gmail, applying in a single project Material UI, JSS, React, React Router and Redux, with responsive design, to learn/practice all this technologies and frameworks together.
 
-### Roadmap - v.0.1
+## Roadmap - v0.1.0
 
-###### HTML and CSS: To replicate the design of Gmail using Material UI/JSS.
+To replicate the design of Gmail using Material UI/JSS. After implement the screens using just React and JSS, next step is to add more interaction (UX), and replicate some email management features using just Redux.
 
-- [x]  Mail list view - Index list / Favorites / Snoozed...etc. (img. 1)
+The steps that are finished, has the screenshot on next section
 
-- [x]  Compose email (img. 2)
+- [x] Mail list view - Index list / Favorites / Snoozed / etc
+- [x] Compose email
+- [x] Opened email
+- [x] Reply email
+- [ ] Hamburger menu to control the drawer
+- [ ] Compose a "real" email, with "to" emails suggestions
+- [ ] Send bar being able to send, delete and draft an email
+- [ ] Toolbar in mail list being able to archive, read, delete and snooze
+- [ ] Improve code coverage, and build on Travis
+- [ ] Split into small reusable components
 
-- [x]  Opened email (img.3)
-
-- [x]  Reply mail (img.3)
-
-**Img. 01**
+### Mail list view
 
 ![List Emails](./screens/img01.png)
 
-**Img. 02**
-
+### Compose email
 ![Email Compose](./screens/img02.png)
 
-**Img. 03**
+### Opened email
 
 ![Opened Email](./screens/img03.png)
 
-
-###### JS: To use React, React Router and Redux to create an integration between interface and user.
-
-- [ ]  Hamburger menu with drawer effects
-- [ ]  Click on 'Compose' button and open a window for new email  
-    - [ ]  Toolbar actions (minimize / maximize / close window)
-    - [ ]  To include some previous email for 'to' field, to user select
-    - [ ]  To include subject
-    - [ ]  To include text content field
-    - [ ]  Actions in 'send bar'
-      - [ ]  Include some text editor for edit text area
-      - [ ]  'Send' button, to send email    
-      - [ ]  'Delete' button, to exclude email
-      - [ ]  Save in Draft when close the window
-    - [ ]  After 'Send' email appears on 'Sent' list
-    - [ ]  Aborted email appears on 'Draft' list
-    - [ ]  Inbox appear an email model  
-      - [ ]  Actions directly in email list (archive, snooze,favorite...etc)
-      - [ ]  Open email
-        - [ ]  Toolbar in email for actions (archive, snooze,favorite...etc)
-        - [ ]  Actions in button 'Reply'
-      - [ ]  Open box 'Reply'
-          - [ ]  The same actions used in 'Compose' process.
-- [ ]  To write and run a test for every new feature
-- [ ]  Split into small reusable components and publish a package on NPM
-
-### Disclaimer
-
-##### This project was created with the only proposal for studies and coding trainee, never to create a copy of Google products as a business.
-
-###### All rights of Gmail or any [Google](goole.com) products belongs to [Alphabet Inc.](https://abc.xyz/)
+### Reply email
+![Reply Email](./screens/img04.png)
 
 ### Tecnologies
 
@@ -76,3 +51,9 @@ Thinking of this, the idea of this project is to recreate a Gmail, applying in a
 [Redux](https://redux.js.org/)
 
 [Github](https://github.com/)
+
+### Disclaimer
+
+#### This project was created with the only proposal for studies and practice coding skills, never to create a copy of Google products as a business.
+
+##### All rights of Gmail or any [Google](https://www.google.com/) products belongs to [Alphabet Inc.](https://abc.xyz/)

@@ -29,7 +29,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
     backgroundColor: 'white',
     [theme.breakpoints.down('sm')]: {
-      display: 'none',
+      display: 'flex',
     },
   },
   item: {

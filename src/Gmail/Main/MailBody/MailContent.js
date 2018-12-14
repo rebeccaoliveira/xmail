@@ -21,7 +21,13 @@ import MailTextBody from './MailTextBody'
 
 const styles = theme => ({
   root: {
-    overflowX: 'auto',
+    overflowY: 'auto',
+    height: 'calc(100% - 113px)',
+    maxHeight: 'calc(100% - 113px)',
+    minHeight: 'calc(100% - 113px)',
+    [theme.breakpoints.down('sm')]: {
+      padding: 30,
+    }
   },
 })
 

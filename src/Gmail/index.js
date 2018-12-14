@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Drawer from './Drawer'
 import Header from './Header'
 import Main from './Main'
-
+import MailboxCompose from './MailCompose'
 
 const styles = theme => ({
   '@global': {
@@ -36,6 +36,7 @@ const Gmail = ({classes}) => (
       <Drawer />
       <Main />
     </Grid>
+    <MailboxCompose />
   </React.Fragment>
 )
 
