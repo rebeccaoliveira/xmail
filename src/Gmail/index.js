@@ -36,7 +36,6 @@ const Gmail = ({classes}) => (
       <Drawer />
       <Main />
     </Grid>
-    <MailboxCompose />
   </React.Fragment>
 )
 
