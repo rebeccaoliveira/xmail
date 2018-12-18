@@ -10,6 +10,7 @@ import classNames from 'classnames'
 import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import { connect } from 'react-redux'
 
 //icons
 import MenuIcon from '@material-ui/icons/Menu'
@@ -18,6 +19,9 @@ import AppsIcon from '@material-ui/icons/Apps';
 
 // Components Imports
 import SearchBar from './SearchBar'
+
+//apps Imports
+import { drawerToggle } from '../../store/actions/drawer'
 
 //Images
 import logoGmail from '../images/gmail_logo.png'
@@ -68,10 +72,10 @@ const styles = theme => ({
   },
 });
 
-const Header = ({classes}) => (
+const Header = ({classes, drawerToggle}) => (
   <AppBar className={classes.appBar} elevation={0}>
     <Toolbar className={classes.divToolbar}>
-      <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+      <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={drawerToggle}>
         <MenuIcon />
       </IconButton>
       <Typography variant="h6" color="inherit" className={classes.flex}>
@@ -89,4 +93,10 @@ const Header = ({classes}) => (
   </AppBar>
 );
 
-export default withStyles(styles)(Header)
+const mapDispatchToProps = {
+  drawerToggle
+}
+
+export default withStyles(styles)(
+  connect(null, mapDispatchToProps)(Header)
+)
