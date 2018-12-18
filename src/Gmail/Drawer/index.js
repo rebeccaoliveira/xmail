@@ -2,7 +2,9 @@
 import React from 'react'
 
 // Package Imports
+import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
 import MaterialDrawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 
@@ -19,10 +21,31 @@ const drawerWidth = 256;
 const styles = theme => ({
   drawerPaper: {
     position: 'relative',
-    width: drawerWidth,
     borderRight: 'none',
   },
-  toolbar: theme.mixins.toolbar,
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+  },
+  drawerOpen: {
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: 0.15,
+    }),
+  },
+  drawerClose: {
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: 0.15,
+    }),
+    overflowX: 'hidden',
+    width: theme.spacing.unit * 7 + 1,
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing.unit * 9 + 1,
+    },
+  },
   divBase: {
     left: 0,
     bottom: 0,
@@ -39,14 +62,19 @@ const styles = theme => ({
     color: '#767676',
     alignItems: 'center',
   },
+  toolbar: theme.mixins.toolbar,
 });
 
-const Drawer = ({classes}) => (
+const Drawer = ({classes, drawer}) => (
   <MaterialDrawer
     variant="permanent"
     classes={{
-      paper: classes.drawerPaper,
+      paper: classNames(classes.drawerPaper, {
+        [classes.drawerOpen]: drawer.open,
+        [classes.drawerClose]: !drawer.open,
+      }),
     }}
+    open={drawer.open}
   >
     <div className={classes.toolbar} />
     <SimpleList />
@@ -60,4 +88,13 @@ const Drawer = ({classes}) => (
   </MaterialDrawer>
 )
 
-export default withStyles(styles)(Drawer)
+const mapStateToProps = state => {
+  const { drawer } = state
+  return ({
+    drawer
+  })
+}
+
+export default withStyles(styles)(
+  connect(mapStateToProps)(Drawer)
+)
