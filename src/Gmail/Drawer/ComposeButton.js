@@ -126,7 +126,7 @@ function ComposeButton({classes, drawer}) {
       >
         <div
           className={classNames(classes.text, {
-            [classes.textOpen]: drawer.open,
+            [classes.text]: drawer.open,
             [classes.textClose]: !drawer.open,
           })}
         >

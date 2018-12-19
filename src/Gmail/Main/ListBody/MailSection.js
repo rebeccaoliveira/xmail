@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 
 // Package Imports
+import { connect } from 'react-redux'
 import classNames from 'classnames'
 import Checkbox from '@material-ui/core/Checkbox'
 import Divider from '@material-ui/core/Divider'
@@ -44,6 +45,8 @@ const styles = theme => ({
   root: {
     paddingLeft: 0,
     float: 'right',
+    width: '100%',
+    maxWidth: '100%',
   },
   table: {
     display: 'block',
@@ -232,7 +235,7 @@ const styles = theme => ({
   },
 });
 
-const MailSection = ({classes, mails, title}) => (
+const MailSection = ({classes, mails, title, drawer}) => (
   <div className={classes.container}>
     <TaskListTitle title={title} />
     <Divider />
@@ -268,11 +271,18 @@ const MailSection = ({classes, mails, title}) => (
                   }
                 />
               </TableCell>
-              <TableCell className={classes.tdTitle} style={{fontWeight: (row.unread ? '500' : 'normal')}}>{row.title}</TableCell>
+              <TableCell className={classes.tdTitle} style={{fontWeight: (row.unread ? '500' : 'normal')}}>
+                {row.title}
+              </TableCell>
               <Hidden xsDown>
-                <TableCell className={classNames(classes.td, classes.tdContent)} style={{fontWeight: (row.unread ? '500' : 'normal')}}>
+
+                <TableCell
+                  className={classNames(classes.td, classes.tdContent)}
+                  style={{fontWeight: (row.unread ? '500' : 'normal')}}
+                  >
                   <p className={classes.wrapText}>{row.content}</p>
                 </TableCell>
+
                 <TableCell className={classNames(classes.td, classes.tdHover)}>
                   <div className={classes.rowToolbar} data-attribute="row-toolbar">
                     <IconButton className={classes.tdButton}>
@@ -300,6 +310,7 @@ const MailSection = ({classes, mails, title}) => (
       </Table>
     </Grid>
   </div>
-)
+);
+
 
 export default withStyles(styles)(MailSection);

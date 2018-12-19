@@ -62,18 +62,6 @@ const styles = theme => ({
     '&:hover': {
       cursor: 'pointer',
     },
-  // buttonInbox: {
-  //   width: '100%',
-  //   maxWidth: 360,
-  //   backgroundColor: theme.palette.background.paper,
-  //   borderRadius: '0 12px 12px 0',
-  //   transition: 'margin .15s cubic-bezier(0.4,0.0,0.2,1),padding .15s cubic-bezier(0.4,0.0,0.2,1)',
-  //   padding: '0 10px 0 26px',
-  //   backgroundColor: '#fce8e6',
-  //   color: '#d93025',
-  //   '&:hover': {
-  //     cursor: 'pointer',
-  //   },
   //css on specifc divs
   },
   divRoot: {
@@ -143,8 +131,6 @@ function SimpleList({classes, drawer}) {
             </div>
           </Hidden>
         </div>
-
-
       </div>
     </>
   );

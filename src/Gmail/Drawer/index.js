@@ -12,6 +12,7 @@ import Hidden from '@material-ui/core/Hidden'
 import People from '@material-ui/icons/People'
 import Chat from '@material-ui/icons/Chat'
 import Phone from '@material-ui/icons/Phone'
+import KeyBoard from '@material-ui/icons/KeyboardArrowUp'
 
 // App Imports
 import SimpleList from './lists'
@@ -62,6 +63,28 @@ const styles = theme => ({
     color: '#767676',
     alignItems: 'center',
   },
+  divOpen: {
+    marginLeft: 0,
+    display: 'flex',
+  },
+  divClose: {
+    marginLeft: 0,
+    display: 'none',
+    '&:before': {
+      position: 'fixed',
+      display: 'flex',
+      left: 10,
+      marginRight: 20,
+      content: '""',
+      backgroundImage: `url(${KeyBoard})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '32px',
+      display: 'block',
+      height: '48px',
+      minWidth: '56px',
+    },
+  },
   toolbar: theme.mixins.toolbar,
 });
 
@@ -79,7 +102,12 @@ const Drawer = ({classes, drawer}) => (
     <div className={classes.toolbar} />
     <SimpleList />
     <Hidden smDown>
-      <div className={classes.divBase}>
+      <div
+        className={classNames(classes.divBase, {
+          [classes.divOpen]: drawer.open,
+          [classes.divClose]: !drawer.open,
+        })}
+      >
         <People />
         <Chat style={{margin:20}}/>
         <Phone />
