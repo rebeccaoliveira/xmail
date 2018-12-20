@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 //Components
 import Drawer from './Drawer'
@@ -29,13 +30,17 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
-const Gmail = ({classes}) => (
+const Gmail = ({classes, compose}) => (
   <React.Fragment>
     <Grid className={classes.root} container>
       <Header />
       <Drawer />
       <Main />
     </Grid>
+    {
+      compose.winState !== "closed" &&
+      <MailboxCompose />
+    }
   </React.Fragment>
 )
 
@@ -43,4 +48,14 @@ Gmail.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Gmail);
+const mapStateToProps = state => {
+  const { compose } = state
+  return ({
+    compose
+  })
+}
+
+// connect stateToProps compose.state
+export default withStyles(styles)(
+  connect(mapStateToProps)(Gmail)
+);

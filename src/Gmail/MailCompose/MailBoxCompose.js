@@ -2,6 +2,12 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+//apps Imports
+import { composeMinimize } from '../../store/actions/compose'
+import { composeMaximize } from '../../store/actions/compose'
+import { composeClose } from '../../store/actions/compose'
 
 // Package Imports
 import classNames from 'classnames'
@@ -32,6 +38,49 @@ const styles = theme => ({
     zIndex: 9999,
     bottom: 0,
     right: 90,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+    containerBody: {
+      width: 510,
+      position: 'absolute',
+      height: 425,
+    },
+  },
+  open: {
+
+  },
+  minimized: {
+    width: 510,
+    position: 'absolute',
+    height: 100,
+    minHeight: 100,
+    maxHeight: 100,
+    float: 'left',
+    display: 'block',
+    zIndex: 9999,
+    bottom: 0,
+    right: 90,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+    containerBody: {
+      width: 510,
+      position: 'absolute',
+      height: 425,
+    },
+  },
+  maximized: {
+    width: 610,
+    position: 'absolute',
+    height: 200,
+    minHeight: 200,
+    maxHeight: 200,
+    float: 'left',
+    display: 'block',
+    zIndex: 9999,
+    bottom: 10,
+    right: 120,
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -155,8 +204,7 @@ const styles = theme => ({
   },
 });
 
-function MailboxCompose(props) {
-  const { classes } = props;
+function MailboxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
   return (
     <Paper className={classes.container} elevation={3}>
       <Grid container className={classes.gridBar}>
@@ -165,9 +213,9 @@ function MailboxCompose(props) {
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <Minimize className={classes.icon} fontSize="small" />
-            <Launch className={classes.icon} fontSize="small" />
-            <Clear className={classes.icon} fontSize="small" />
+            <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
+            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
+            <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
           </div>
         </Grid>
       </Grid>
@@ -175,7 +223,7 @@ function MailboxCompose(props) {
       <Grid container className={classes.containerBody}>
         <Grid item xs={6}>
           <Typography className={classes.titleForm} variant="subtitle2">
-          From <input className={classes.inputForm} value="you@mail.com" />
+          From <input readOnly className={classes.inputForm} value="you@mail.com" />
           </Typography>
         </Grid>
         <Grid item xs={6}>
@@ -185,12 +233,12 @@ function MailboxCompose(props) {
         </Grid>
         <Grid item xs={12}>
           <Typography className={classes.titleForm} style={{borderBottom:'1px solid #e0e0e0'}} variant="subtitle2">
-          To <input className={classes.inputForm} />
+          To <input readOnly className={classes.inputForm} />
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <div className={classes.divTitle}>
-            <input className={classes.inputTitle} placeholder="Subject" />
+            <input readOnly className={classes.inputTitle} placeholder="Subject" />
           </div>
         </Grid>
         <Grid item xs={12}>
@@ -211,4 +259,21 @@ MailboxCompose.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailboxCompose);
+const mapStateToProps = state => {
+  const { compose } = state
+  return ({
+    compose,
+  })
+}
+
+const mapDispatchToProps = {
+  composeMinimize,
+  composeMaximize,
+  composeClose
+}
+
+export default (
+  connect(mapStateToProps, mapDispatchToProps)(
+    withStyles(styles)(MailboxCompose)
+  )
+);

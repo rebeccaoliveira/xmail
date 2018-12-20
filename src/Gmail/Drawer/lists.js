@@ -94,6 +94,10 @@ const styles = theme => ({
     zIndex: 1,
     width: 256,
     height: 80,
+    [theme.breakpoints.down('sm')]: {
+      zIndex: 1,
+
+    },
   },
 });
 

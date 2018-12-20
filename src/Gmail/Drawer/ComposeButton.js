@@ -10,9 +10,11 @@ import Button from '@material-ui/core/Button'
 import classNames from 'classnames'
 import keyframes from 'jss-keyframes'
 
+//apps Imports
+import { composeOpen } from '../../store/actions/compose'
+
 //images
 import IconAdd from '../images/gmail_icon_add.png'
-
 
 const animationName = keyframes({
   '0%': {
@@ -56,17 +58,12 @@ labelClose: {
 },
 buttonDiv: {
   paddingLeft: 2,
-  // margin: '16px 0px',
   minHeight: 80,
   height: 80,
   display: 'flex',
   alignItems: 'center'
 },
-composeOpen: {
-  // backgroundColor: 'red',
-},
 composeClose: {
-  // backgroundColor: 'blue',
   borderRadius: 28,
   height: 56,
   width: 56,
@@ -94,7 +91,6 @@ text: {
 },
 textClose: {
   marginLeft: 0,
-  // backgroundColor: 'red',
   '&:before': {
     marginRight: 0,
   }
@@ -113,10 +109,12 @@ spanClose: {
 },
 });
 
-function ComposeButton({classes, drawer}) {
+function ComposeButton({classes, drawer, composeOpen}) {
   return (
     <div className={classes.buttonDiv}>
       <Button
+        onClick={composeOpen}
+
         variant="extendedFab"
         className={classNames(classes.button, classes.label, {
           [classes.composeOpen]: drawer.open,
@@ -143,6 +141,7 @@ function ComposeButton({classes, drawer}) {
 ComposeButton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 const mapStateToProps = state => {
   const { drawer } = state
   return ({
@@ -150,6 +149,10 @@ const mapStateToProps = state => {
   })
 }
 
+const mapDispatchToProps = {
+  composeOpen
+}
+
 export default withStyles(styles)(
-  connect(mapStateToProps)(ComposeButton)
+  connect(mapStateToProps, mapDispatchToProps)(ComposeButton)
 );
