@@ -9,6 +9,8 @@ import Drawer from './Drawer'
 import Header from './Header'
 import Main from './Main'
 import MailboxCompose from './MailCompose'
+import MinimizedMailBoxCompose from './MailCompose/MinimizedMailBoxCompose'
+import ModalMailBoxCompose from './MailCompose/ModalMailBoxCompose'
 
 const styles = theme => ({
   '@global': {
@@ -37,10 +39,9 @@ const Gmail = ({classes, compose}) => (
       <Drawer />
       <Main />
     </Grid>
-    {
-      compose.winState !== "closed" &&
-      <MailboxCompose />
-    }
+
+    <ModalMailBoxCompose />
+
   </React.Fragment>
 )
 

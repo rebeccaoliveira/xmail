@@ -161,7 +161,7 @@ const styles = theme => ({
   },
 });
 
-function MailboxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
+function ModalMailBoxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
   return (
     <Paper className={classes.container} elevation={3}>
       <Grid container className={classes.gridBar}>
@@ -211,7 +211,7 @@ function MailboxCompose({classes, compose, composeMinimize, composeMaximize, com
   );
 }
 
-MailboxCompose.propTypes = {
+ModalMailBoxCompose.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -230,6 +230,6 @@ const mapDispatchToProps = {
 
 export default (
   connect(mapStateToProps, mapDispatchToProps)(
-    withStyles(styles)(MailboxCompose)
+    withStyles(styles)(ModalMailBoxCompose)
   )
 );

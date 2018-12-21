@@ -13,6 +13,7 @@ const composeInitialState = {
 const composeReducer = (state = composeInitialState, action) => {
   switch (action.type) {
     case COMPOSE_OPEN:
+    // actio.payload
       return { ...state, winState: "open" }
     case COMPOSE_MINIMIZE:
       return { ...state, winState: "minimized" }
