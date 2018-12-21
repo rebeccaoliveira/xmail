@@ -28,6 +28,21 @@ import Minimize from '@material-ui/icons/Minimize'
 import Launch from '@material-ui/icons/Launch'
 import Clear from '@material-ui/icons/Clear'
 
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50 + rand();
+  const left = 50 + rand();
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
 const styles = theme => ({
   container: {
     width: 980,
@@ -163,75 +178,91 @@ const styles = theme => ({
   },
 });
 
-function ModalMailBoxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
-  return (
-    <Paper className={classes.container} elevation={3}>
-      <Grid container className={classes.gridBar}>
-        <Grid item xs={6} className={classes.gridText}>
-          <Typography className={classes.pTitle} variant="subtitle2">New Message</Typography>
-        </Grid>
-        <Grid item xs={6} className={classes.gridIcons}>
-          <div>
-            <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
-            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
-            <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
-          </div>
-        </Grid>
-      </Grid>
+class SimpleModal extends React.Component {
+  state = {
+    open: false,
+  };
 
-      <Grid container className={classes.containerBody}>
-        <Grid item xs={6}>
-          <Typography className={classes.titleForm} variant="subtitle2">
-          From <input readOnly className={classes.inputForm} value="you@mail.com" />
-          </Typography>
-        </Grid>
-        <Grid item xs={6}>
-          <div>
-            <Typography style={{justifyContent: 'flex-end'}} className={classes.titleForm} variant="subtitle2">Cc Bcc</Typography>
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div>
+        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
+        <Button onClick={this.handleOpen}>Open Modal</Button>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <div style={getModalStyle()} className={classes.paper}>
+            <Paper className={classes.container} elevation={3}>
+              <Grid container className={classes.gridBar}>
+                <Grid item xs={6} className={classes.gridText}>
+                  <Typography className={classes.pTitle} variant="subtitle2">New Message</Typography>
+                </Grid>
+                <Grid item xs={6} className={classes.gridIcons}>
+                  <div>
+                    <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
+                    <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
+                    <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
+                  </div>
+                </Grid>
+              </Grid>
+
+              <Grid container className={classes.containerBody}>
+                <Grid item xs={6}>
+                  <Typography className={classes.titleForm} variant="subtitle2">
+                  From <input readOnly className={classes.inputForm} value="you@mail.com" />
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <div>
+                    <Typography style={{justifyContent: 'flex-end'}} className={classes.titleForm} variant="subtitle2">Cc Bcc</Typography>
+                  </div>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography className={classes.titleForm} style={{borderBottom:'1px solid #e0e0e0'}} variant="subtitle2">
+                  To <input readOnly className={classes.inputForm} />
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <div className={classes.divTitle}>
+                    <input readOnly className={classes.inputTitle} placeholder="Subject" />
+                  </div>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography className={classes.pText} variant="body2" gutterBottom>
+                    <textarea cols="30" rows="5" className={classes.inputForm} type="text" />
+                  </Typography>
+                </Grid>
+              </Grid>
+              <div className={classes.mailSend}>
+                <MailSendBar  />
+              </div>
+            </Paper>
+            <SimpleModalWrapped />
           </div>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography className={classes.titleForm} style={{borderBottom:'1px solid #e0e0e0'}} variant="subtitle2">
-          To <input readOnly className={classes.inputForm} />
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <div className={classes.divTitle}>
-            <input readOnly className={classes.inputTitle} placeholder="Subject" />
-          </div>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography className={classes.pText} variant="body2" gutterBottom>
-            <textarea cols="30" rows="5" className={classes.inputForm} type="text" />
-          </Typography>
-        </Grid>
-      </Grid>
-      <div className={classes.mailSend}>
-        <MailSendBar  />
+        </Modal>
       </div>
-    </Paper>
-  );
+    );
+  }
 }
 
-ModalMailBoxCompose.propTypes = {
+SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  const { compose } = state
-  return ({
-    compose,
-  })
-}
+// We need an intermediary variable for handling the recursive nesting.
+const SimpleModalWrapped = withStyles(styles)(SimpleModal);
 
-const mapDispatchToProps = {
-  composeMinimize,
-  composeMaximize,
-  composeClose
-}
-
-export default (
-  connect(mapStateToProps, mapDispatchToProps)(
-    withStyles(styles)(ModalMailBoxCompose)
-  )
-);
+export default SimpleModalWrapped;

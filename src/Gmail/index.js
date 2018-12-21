@@ -40,7 +40,7 @@ const Gmail = ({classes, compose}) => (
       <Main />
     </Grid>
 
-    <ModalMailBoxCompose />
+      <ModalMailBoxCompose />
 
   </React.Fragment>
 )
