@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { composeMinimize } from '../../store/actions/compose'
 import { composeMaximize } from '../../store/actions/compose'
 import { composeClose } from '../../store/actions/compose'
+import { composeOpen } from '../../store/actions/compose'
 
 // Package Imports
 import classNames from 'classnames'
@@ -37,8 +38,8 @@ const styles = theme => ({
     float: 'left',
     display: 'block',
     zIndex: 9999,
-    bottom: 0,
-    right: 0,
+    bottom: 50,
+    right: 45,
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -151,18 +152,14 @@ const styles = theme => ({
     zIndex: 1,
   },
   mailSend: {
-    maxWidth: '100%',
-    width: 510,
     paddingLeft: 15,
     paddingRight: 15,
     marginTop: 10,
     marginBottom: 10,
-    bottom: 0,
-    position: 'relative',
   },
 });
 
-function ModalMailBoxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
+function ModalMailBoxCompose({classes, compose, composeMinimize, composeOpen, composeClose}) {
   return (
     <Paper className={classes.container} elevation={3}>
       <Grid container className={classes.gridBar}>
@@ -171,9 +168,9 @@ function ModalMailBoxCompose({classes, compose, composeMinimize, composeMaximize
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
-            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
-            <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
+            <a><Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} /></a>
+            <a><Launch className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} /></a>
+            <a><Clear className={classes.icon} fontSize="small" onClick={composeClose} /></a>
           </div>
         </Grid>
       </Grid>
@@ -225,7 +222,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   composeMinimize,
-  composeMaximize,
+  composeOpen,
   composeClose
 }
 

@@ -124,16 +124,14 @@ function SimpleList({classes, drawer}) {
           </div>
         </Hidden>
         <div className={classes.container}>
-          <Hidden smDown>
-            <div className={classes.divMenu}>
-            {menuItems.map((item, index) => (
-              <ListItem button className={classNames(classes.button,classes.divRoot)}>
-                <item.icon className={classes.divIcon}/>
-                  {drawer.open ? item.text : ''}
-              </ListItem>
-            ))}
-            </div>
-          </Hidden>
+          <div className={classes.divMenu}>
+          {menuItems.map((item, index) => (
+            <ListItem button className={classNames(classes.button,classes.divRoot)}>
+              <item.icon className={classes.divIcon}/>
+                {drawer.open ? item.text : ''}
+            </ListItem>
+          ))}
+          </div>
         </div>
       </div>
     </>

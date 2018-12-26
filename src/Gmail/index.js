@@ -9,6 +9,7 @@ import Drawer from './Drawer'
 import Header from './Header'
 import Main from './Main'
 import ControlMailBoxCompose from './MailCompose/ControlMailBoxCompose'
+import ComposeButtonMobile from './Drawer/ComposeButtonMobile'
 
 
 const styles = theme => ({
@@ -39,6 +40,7 @@ const Gmail = ({classes, compose}) => (
       <Main />
     </Grid>
     <ControlMailBoxCompose />
+    <ComposeButtonMobile />
   </React.Fragment>
 )
 

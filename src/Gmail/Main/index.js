@@ -11,7 +11,7 @@ import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 
 import ListBody from './ListBody'
-import MailBody from './MailBody'
+import MailContentMobile from './MailBody/MailContentMobile'
 
 
 const styles = theme => ({
@@ -48,7 +48,7 @@ const Main = ({classes, drawer}) => {
       open={drawer.open}
       >
       <div className={classes.toolbar} />
-      <ListBody />
+      <MailContentMobile />
     </Grid>
   )
 }

@@ -34,24 +34,6 @@ function ControlMailBoxCompose({ compose }) {
   );
 }
 
-// function ControlMailBoxCompose({ state }) {
-//   return (
-//     <div>
-//       {(function() {
-//         switch(state) {
-//           case 'open':
-//             return <MailBoxCompose />;
-//           case 'minimize':
-//             return <MinimizedMailBoxCompose />;
-//           case 'maximize':
-//             return <ModalMailBoxCompose  />;
-//           default:
-//             return null;
-//         }
-//       })()}
-//     </div>
-//   );
-// }
 
 ControlMailBoxCompose.propTypes = {
   state: PropTypes.oneOf(['open', 'minimize', 'maximize'])
