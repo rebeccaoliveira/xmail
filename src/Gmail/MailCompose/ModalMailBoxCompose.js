@@ -18,8 +18,7 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Divider from '@material-ui/core/Divider'
 import TextField from '@material-ui/core/TextField'
-import Modal from '@material-ui/core/Modal';
-
+import Modal from '@material-ui/core/Modal'
 
 // components
 import MailSendBar from '../Main/MailBody/MailSendBar'

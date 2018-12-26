@@ -204,7 +204,7 @@ class SimpleModal extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <div style={getModalStyle()} className={classes.paper}>
+          <div style={getModalStyle()}>
             <Paper className={classes.container} elevation={3}>
               <Grid container className={classes.gridBar}>
                 <Grid item xs={6} className={classes.gridText}>
@@ -212,9 +212,9 @@ class SimpleModal extends React.Component {
                 </Grid>
                 <Grid item xs={6} className={classes.gridIcons}>
                   <div>
-                    <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
-                    <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
-                    <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
+                    <Minimize className={classNames(classes.icon)} fontSize="small" />
+                    <Launch className={classNames(classes.icon)} fontSize="small" />
+                    <Clear className={classes.icon} fontSize="small" />
                   </div>
                 </Grid>
               </Grid>

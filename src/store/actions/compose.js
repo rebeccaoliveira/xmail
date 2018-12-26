@@ -12,7 +12,6 @@ export const composeOpen = () => ({
 
 export const composeMinimize = () => ({
   type: COMPOSE_MINIMIZE,
-  // payload: win
 });
 
 export const composeMaximize = () => ({

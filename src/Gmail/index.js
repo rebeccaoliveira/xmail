@@ -8,9 +8,8 @@ import { connect } from 'react-redux'
 import Drawer from './Drawer'
 import Header from './Header'
 import Main from './Main'
-import MailboxCompose from './MailCompose'
-import MinimizedMailBoxCompose from './MailCompose/MinimizedMailBoxCompose'
-import ModalMailBoxCompose from './MailCompose/ModalMailBoxCompose'
+import ControlMailBoxCompose from './MailCompose/ControlMailBoxCompose'
+
 
 const styles = theme => ({
   '@global': {
@@ -39,9 +38,7 @@ const Gmail = ({classes, compose}) => (
       <Drawer />
       <Main />
     </Grid>
-
-      <ModalMailBoxCompose />
-
+    <ControlMailBoxCompose />
   </React.Fragment>
 )
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 //apps Imports
-import { composeMinimize } from '../../store/actions/compose'
+import { composeOpen } from '../../store/actions/compose'
 import { composeMaximize } from '../../store/actions/compose'
 import { composeClose } from '../../store/actions/compose'
 
@@ -81,7 +81,7 @@ const styles = theme => ({
   },
 });
 
-function MinimizedMailBoxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
+function MinimizedMailBoxCompose({classes, compose, composeOpen, composeMaximize, composeClose}) {
   return (
     <Paper className={classes.container} elevation={3}>
       <Grid container className={classes.gridBar}>
@@ -90,7 +90,7 @@ function MinimizedMailBoxCompose({classes, compose, composeMinimize, composeMaxi
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <Maximize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
+            <Maximize className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} />
             <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
             <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
           </div>
@@ -112,7 +112,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  composeMinimize,
+  composeOpen,
   composeMaximize,
   composeClose
 }
