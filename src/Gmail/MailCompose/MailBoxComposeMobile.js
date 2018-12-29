@@ -32,9 +32,9 @@ import ReplyIcon from '@material-ui/icons/Reply';
 const styles = theme => ({
   root: {
     marginTop: 15,
-    overflowY: 'auto',
+    overflowY: 'none',
     [theme.breakpoints.up('sm')]: {
-      paddingRight: 20
+      paddingRight: 40
     }
   },
   rootResize: {
@@ -138,6 +138,10 @@ const styles = theme => ({
     paddingRight: 15,
     marginTop: 10,
     marginBottom: 10,
+    padding: 10,
+    [theme.breakpoints.up('sm')]: {
+      display: 'grid',
+    }
   },
 });
 

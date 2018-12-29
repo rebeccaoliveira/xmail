@@ -4,11 +4,14 @@ import PropTypes from 'prop-types'
 
 // Package Imports
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import classNames from 'classnames'
 import Fab from '@material-ui/core/Fab';
+import { Link } from "react-router-dom"
+
+//components
+import MailContentMobile from '../Main/MailBody/MailContentMobile'
 
 //apps Imports
 import { composeOpen } from '../../store/actions/compose'
@@ -42,20 +45,17 @@ const styles = theme => ({
   },
 });
 
-// const ComposeLink = props => <Link to="/Gmail/MailCompose/MailBoxComposeMobile" {...props} />
 
-function ComposeButton({classes, composeOpen}) {
+function ComposeButtonMobile({classes, composeOpen}) {
   return (
-    <div>
-      <Fab onClick={composeOpen}
-
-      className={classes.button} >
-      </Fab>
-    </div>
+    <Fab
+      onClick={composeOpen}
+      className={classes.button}
+    />
   );
 }
 
-ComposeButton.propTypes = {
+ComposeButtonMobile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -64,5 +64,5 @@ const mapDispatchToProps = {
 }
 
 export default withStyles(styles)(
-  connect(null, mapDispatchToProps)(ComposeButton)
+  connect(null, mapDispatchToProps)(ComposeButtonMobile)
 );

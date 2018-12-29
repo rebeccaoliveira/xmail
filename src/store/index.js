@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 // Packages Import
 import { applyMiddleware, compose, createStore } from 'redux'
 import { createBrowserHistory } from 'history'
-import { routerMiddleware } from 'connected-react-router'
 import createSagaMiddleware from 'redux-saga'
 
 // Our App Imports
@@ -13,19 +12,11 @@ import createRootReducer from './reducers'
 import Sagas from './sagas'
 
 const configureStore = (initialState) => {
-
-  // history for connected-react-router
-  // and our app runs on /v4
-  const history = createBrowserHistory({
-    basename: '/xmail/',
-  })
-
   // create saga middleware here to use and hot reload sagas
   const sagaMiddleware = createSagaMiddleware();
   const middlewareList = [
     /* other middleware here */
-    sagaMiddleware,
-    routerMiddleware(history)
+    sagaMiddleware
   ];
 
   const middleware = applyMiddleware(...middlewareList);
@@ -35,7 +26,7 @@ const configureStore = (initialState) => {
 
   // create our store with offline enhancer
   const store = createStore(
-    createRootReducer(history),
+    createRootReducer(),
     initialState,
     composeEnhancers(
       middleware
@@ -51,9 +42,8 @@ const configureStore = (initialState) => {
   if (module.hot) {
     module.hot.accept('./reducers', () => {
       const createRootReducer = require('./reducers').default;
-      // needs to enhance reducers with offline config and connected router
       store.replaceReducer(
-        createRootReducer(history)
+        createRootReducer()
       );
     });
 

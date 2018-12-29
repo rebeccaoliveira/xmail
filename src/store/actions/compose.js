@@ -4,7 +4,9 @@ import {
   COMPOSE_MAXIMIZE,
   COMPOSE_DELETE,
   COMPOSE_CLOSE,
-} from '../types/compose'
+  TO_DESKTOP,
+  TO_MOBILE
+} from '../types'
 
 export const composeOpen = () => ({
   type: COMPOSE_OPEN
@@ -24,4 +26,12 @@ export const composeDelete = () => ({
 
 export const composeClose = () => ({
   type: COMPOSE_CLOSE
+});
+
+export const isMobile = () => ({
+  type: TO_MOBILE
+});
+
+export const isDesktop = () => ({
+  type: TO_DESKTOP
 });

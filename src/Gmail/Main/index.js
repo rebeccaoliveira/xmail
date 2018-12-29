@@ -2,6 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+//apps Imports
+import { isMobile } from '../../store/actions'
+
 
 // Package Imports
 import { connect } from 'react-redux'
@@ -9,10 +12,11 @@ import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
-
 import ListBody from './ListBody'
+import MailBody from './MailBody'
 import MailContentMobile from './MailBody/MailContentMobile'
-
+import { Route } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const styles = theme => ({
   containerDrawerOpen: {
@@ -37,8 +41,9 @@ const styles = theme => ({
     },
   }
 })
+const Main = ({classes, drawer, compose}) => {
+  const { device, winState } = compose
 
-const Main = ({classes, drawer}) => {
   return (
     <Grid
       className={classNames(classes.container, {
@@ -48,16 +53,21 @@ const Main = ({classes, drawer}) => {
       open={drawer.open}
       >
       <div className={classes.toolbar} />
-      <MailContentMobile />
+      {(device === "mobile" && winState === "open") ? <MailContentMobile /> : <ListBody />}
     </Grid>
   )
 }
 
 const mapStateToProps = state => {
-  const { drawer } = state
+  const { drawer, compose } = state
   return ({
-    drawer
+    drawer,
+    compose
   })
+}
+
+const mapDispatchToProps = {
+  isMobile,
 }
 
 export default withStyles(styles)(

@@ -5,8 +5,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+//apps Imports
+import { composeOpen } from '../../../store/actions/compose'
+
 // Package Imports
 import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
@@ -32,8 +36,7 @@ const styles = theme => ({
   },
 })
 
-function MailContent(props) {
-  const { classes } = props;
+function MailContentMobile({classes, compose}) {
   return (
     <>
       <MailBar />
@@ -45,8 +48,19 @@ function MailContent(props) {
   );
 }
 
-MailContent.propTypes = {
+MailContentMobile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailContent);
+const mapStateToProps = state => {
+  const { compose } = state
+  return ({
+    compose,
+  })
+}
+
+export default (
+  connect(mapStateToProps)(
+    withStyles(styles)(MailContentMobile)
+  )
+);

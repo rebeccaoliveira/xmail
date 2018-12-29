@@ -10,7 +10,7 @@ import Header from './Header'
 import Main from './Main'
 import ControlMailBoxCompose from './MailCompose/ControlMailBoxCompose'
 import ComposeButtonMobile from './Drawer/ComposeButtonMobile'
-
+import { BrowserRouter as Router } from "react-router-dom"
 
 const styles = theme => ({
   '@global': {
@@ -33,15 +33,17 @@ const styles = theme => ({
 });
 
 const Gmail = ({classes, compose}) => (
-  <React.Fragment>
-    <Grid className={classes.root} container>
-      <Header />
-      <Drawer />
-      <Main />
-    </Grid>
-    <ControlMailBoxCompose />
-    <ComposeButtonMobile />
-  </React.Fragment>
+  <Router>
+    <React.Fragment>
+      <Grid className={classes.root} container>
+        <Header />
+        <Drawer />
+        <Main />
+      </Grid>
+      <ControlMailBoxCompose />
+      <ComposeButtonMobile />
+    </React.Fragment>
+  </Router>
 )
 
 Gmail.propTypes = {

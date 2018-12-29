@@ -1,6 +1,5 @@
 // Package Imports
 import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
 import { reducer as form } from 'redux-form'
 import { snackbarReducer } from 'material-ui-snackbar-redux'
 
@@ -8,11 +7,9 @@ import { snackbarReducer } from 'material-ui-snackbar-redux'
 import drawer from './drawer'
 import compose from './compose'
 
-
 // our reducers
 // receive history as parameter, because its created on store setup
-export default (history) => combineReducers({
-  router: connectRouter(history),
+export default () => combineReducers({
   snackbar: snackbarReducer,
 
   // app reducers
