@@ -126,7 +126,7 @@ function SimpleList({classes, drawer}) {
         <div className={classes.container}>
           <div className={classes.divMenu}>
           {menuItems.map((item, index) => (
-            <ListItem button className={classNames(classes.button,classes.divRoot)}>
+            <ListItem key={index} button className={classNames(classes.button,classes.divRoot)}>
               <item.icon className={classes.divIcon}/>
                 {drawer.open ? item.text : ''}
             </ListItem>

@@ -6,6 +6,7 @@ import { snackbarReducer } from 'material-ui-snackbar-redux'
 // App Imports
 import drawer from './drawer'
 import compose from './compose'
+import mails from './mails'
 
 // our reducers
 // receive history as parameter, because its created on store setup
@@ -15,5 +16,6 @@ export default () => combineReducers({
   // app reducers
   drawer,
   form,
-  compose
+  compose,
+  mails
 })

@@ -51,7 +51,9 @@ function ComposeButtonMobile({classes, composeOpen}) {
     <Fab
       onClick={composeOpen}
       className={classes.button}
-    />
+    >
+    &nbsp;
+    </Fab>
   );
 }
 
