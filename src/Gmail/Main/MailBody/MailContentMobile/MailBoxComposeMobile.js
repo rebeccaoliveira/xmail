@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
+import { connect } from 'react-redux'
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -19,6 +20,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton'
+
+//apps Import
+import { composeChange } from '../../../../store/actions/composeForm'
 
 //components
 import MailSendBar from '../MailSendBar'
@@ -145,8 +149,10 @@ const styles = theme => ({
   },
 });
 
-function MailBoxComposeMobile(props) {
-  const { classes } = props;
+function MailBoxComposeMobile({ classes,composeForm, composeChange }) {
+  const handleChange = (component, e) => {
+    composeChange(component, e.target.value)
+  }
   return(
       <Grid container className={classes.root}>
         <Grid xs={1} />
@@ -158,25 +164,18 @@ function MailBoxComposeMobile(props) {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <div>
-                <Typography style={{justifyContent: 'flex-start'}} className={classes.titleForm} variant="subtitle2">
-                  Cc Bcc <input readOnly className={classes.inputForm} />
-                </Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12}>
               <Typography className={classes.titleForm} style={{borderBottom:'1px solid #e0e0e0'}} variant="subtitle2">
-              To <input readOnly className={classes.inputForm} />
+              To <input onChange={(e) => handleChange('to', e)} value={composeForm.to} className={classes.inputForm} />
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <div className={classes.divTitle}>
-                <input readOnly className={classes.inputTitle} placeholder="Subject" />
+                <input onChange={(e) => handleChange('subject', e)} value={composeForm.subject} className={classes.inputTitle} placeholder="Subject" />
               </div>
             </Grid>
             <Grid item xs={12}>
               <Typography className={classes.pText} variant="body2" gutterBottom>
-                <textarea cols="30" rows="5" className={classes.inputForm} type="text" />
+                <textarea onChange={(e) => handleChange('body', e)} value={composeForm.body} cols="30" rows="5" className={classes.inputForm} type="text" />
               </Typography>
             </Grid>
             <div className={classes.mailSend}>
@@ -192,4 +191,20 @@ MailBoxComposeMobile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailBoxComposeMobile);
+const mapStateToProps = state => {
+  const { compose, composeForm } = state
+  return ({
+    composeForm,
+  })
+}
+
+const mapDispatchToProps = {
+  composeChange
+}
+
+
+export default (
+  connect(mapStateToProps, mapDispatchToProps)(
+    withStyles(styles)(MailBoxComposeMobile)
+  )
+);

@@ -4,10 +4,10 @@ Integração Funcionalidades:
 
 1. Menu Drawer: Menu hamburger lateral que xuringa o menuzão. fazer ele funcionar.[x]
 
-2. Clicar botão 'COMPOSE' e abrir janela de ~novo email
+2. Clicar botão 'COMPOSE' e abrir janela de ~novo email [x]
 
-  ===> Compose Button: onClick => Dispara uma action COMPOSE_START.
-  ===> Reducer para processar a action disparada pelo Button.
+  ===> Compose Button: onClick => Dispara uma action COMPOSE_START. [x]
+  ===> Reducer para processar a action disparada pelo Button. [x]
 
   COMPOSE_SEND COMPOSE_DRAFT COMPOSE_DELETE COMPOSE_MINIMIZE COMPOSE_MAXIMIZE
 
