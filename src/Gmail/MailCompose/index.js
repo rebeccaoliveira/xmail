@@ -1,1 +1,1 @@
-export { default } from './MailBoxCompose'
+export { default } from './ControlMailBoxCompose'

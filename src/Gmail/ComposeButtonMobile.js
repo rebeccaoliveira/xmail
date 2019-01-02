@@ -11,13 +11,13 @@ import Fab from '@material-ui/core/Fab';
 import { Link } from "react-router-dom"
 
 //components
-import MailContentMobile from '../Main/MailBody/MailContentMobile'
+import MailContentMobile from './Main/MailBody/'
 
 //apps Imports
-import { composeOpen } from '../../store/actions/compose'
+import { composeOpen } from '../store/actions/compose'
 
 //images
-import IconAdd from '../images/gmail_icon_add.png'
+import IconAdd from './images/gmail_icon_add.png'
 import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({

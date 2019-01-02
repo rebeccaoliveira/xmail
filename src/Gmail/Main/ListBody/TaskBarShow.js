@@ -15,7 +15,7 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import arrow from '../../images/icons/arrow_drop.png';
 //Components
-import MenuTask from '../MenuControler/MenuTask';
+import MenuTask from './MenuControler/MenuTask';
 
 
 const styles = theme => ({

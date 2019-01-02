@@ -1,3 +1,4 @@
+
 // This file have all components of "Mail" part of the system
 // Title / From -(Owner of email) / Action buttons / Mail Content for reply / Relpy Actions
 
@@ -6,7 +7,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 //apps Imports
-import { composeOpen } from '../../../store/actions/compose'
+import { composeOpen } from '../../../../store/actions/compose'
 
 // Package Imports
 import { withStyles } from '@material-ui/core/styles'
@@ -16,13 +17,13 @@ import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 
 // App Imports
-import MailBar from './MailBar'
-import MailTitle from './MailTitle'
-import MailOwnerBar from './MailOwnerBar'
-import MailReply from './MailReply'
-import MailReplyButton from './MailReplyButton'
-import MailTextBody from './MailTextBody'
-import MailBoxComposeMobile from '../../MailCompose/MailBoxComposeMobile'
+import MailBar from '../MailBar'
+import MailTitle from '../MailTitle'
+import MailOwnerBar from '../MailOwnerBar'
+import MailReply from '../MailReply'
+import MailReplyButton from '../MailReplyButton'
+import MailTextBody from '../MailTextBody'
+import MailBoxComposeMobile from './MailBoxComposeMobile'
 
 const styles = theme => ({
   root: {

@@ -8,8 +8,8 @@ import { connect } from 'react-redux'
 import Drawer from './Drawer'
 import Header from './Header'
 import Main from './Main'
-import ControlMailBoxCompose from './MailCompose/ControlMailBoxCompose'
-import ComposeButtonMobile from './Drawer/ComposeButtonMobile'
+import MailCompose from './MailCompose'
+import ComposeButtonMobile from './ComposeButtonMobile'
 import { BrowserRouter as Router } from "react-router-dom"
 
 const styles = theme => ({
@@ -40,7 +40,7 @@ const Gmail = ({classes, compose}) => (
         <Drawer />
         <Main />
       </Grid>
-      <ControlMailBoxCompose />
+      <MailCompose />
       <ComposeButtonMobile />
     </React.Fragment>
   </Router>

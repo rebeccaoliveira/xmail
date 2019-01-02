@@ -37,7 +37,6 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 // Components
 import TaskListTitle from './TaskListTitle'
 import TaskBarShow from './TaskBarShow'
-import MenuTask from '../MenuControler/MenuTask';
 
 const styles = theme => ({
 

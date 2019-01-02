@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton';
 // Components
-import MenuTask from '../MenuControler/MenuTask';
+import MenuTask from './MenuControler/MenuTask';
 //icons
 import arrowDown from '../../images/icons/keyboard_arrow_down.png'
 import List from '@material-ui/icons/List';

@@ -21,7 +21,7 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton'
 
 //components
-import MailSendBar from '../Main/MailBody/MailSendBar'
+import MailSendBar from '../MailSendBar'
 
 //icons
 import AddIcon from '@material-ui/icons/Add';
@@ -145,7 +145,7 @@ const styles = theme => ({
   },
 });
 
-function MailReply(props) {
+function MailBoxComposeMobile(props) {
   const { classes } = props;
   return(
       <Grid container className={classes.root}>
@@ -188,8 +188,8 @@ function MailReply(props) {
   )
 };
 
-MailReply.propTypes = {
+MailBoxComposeMobile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailReply);
+export default withStyles(styles)(MailBoxComposeMobile);

@@ -21,7 +21,7 @@ import KeyboardLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardRight from '@material-ui/icons/KeyboardArrowRight'
 import Settings from '@material-ui/icons/Settings'
 
-import MenuTask from '../MenuControler/MenuTask'
+import MenuTask from '../ListBody/MenuControler/MenuTask'
 
 
 const styles = theme => ({
