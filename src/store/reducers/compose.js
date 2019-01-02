@@ -9,7 +9,7 @@ import {
 } from '../types'
 
 const composeInitialState = {
-  winState: "closed", // [closed, minimized, maximized, open]
+  winState: "open", // [closed, minimized, maximized, open]
   device: "desktop" // [desktop, mobile]
 }
 

@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { composeMinimize } from '../../store/actions/compose'
 import { composeMaximize } from '../../store/actions/compose'
 import { composeClose } from '../../store/actions/compose'
+import { composeChange } from '../../store/actions/composeForm'
 
 // Package Imports
 import classNames from 'classnames'
@@ -161,7 +162,14 @@ const styles = theme => ({
   },
 });
 
-function MailboxCompose({classes, compose, composeMinimize, composeMaximize, composeClose}) {
+function MailboxCompose({
+    classes, compose, composeMinimize, composeMaximize,
+    composeClose, composeChange, composeForm
+  }) {
+  const handleChange = (component, e) => {
+    composeChange(component, e.target.value)
+  }
+
   return (
     <Paper className={classes.container} elevation={3}>
       <Grid container className={classes.gridBar}>
@@ -190,17 +198,17 @@ function MailboxCompose({classes, compose, composeMinimize, composeMaximize, com
         </Grid>
         <Grid item xs={12}>
           <Typography className={classes.titleForm} style={{borderBottom:'1px solid #e0e0e0'}} variant="subtitle2">
-          To <input readOnly className={classes.inputForm} />
+          To <input onChange={(e) => handleChange('to', e)} value={composeForm.to} className={classes.inputForm} />
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <div className={classes.divTitle}>
-            <input readOnly className={classes.inputTitle} placeholder="Subject" />
+            <input onChange={(e) => handleChange('subject', e)} value={composeForm.subject} className={classes.inputTitle} placeholder="Subject" />
           </div>
         </Grid>
         <Grid item xs={12}>
           <Typography className={classes.pText} variant="body2" gutterBottom>
-            <textarea cols="30" rows="5" className={classes.inputForm} type="text" />
+            <textarea onChange={(e) => handleChange('body', e)} value={composeForm.body} cols="30" rows="5" className={classes.inputForm} type="text" />
           </Typography>
         </Grid>
       </Grid>
@@ -216,16 +224,18 @@ MailboxCompose.propTypes = {
 };
 
 const mapStateToProps = state => {
-  const { compose } = state
+  const { compose, composeForm } = state
   return ({
     compose,
+    composeForm,
   })
 }
 
 const mapDispatchToProps = {
   composeMinimize,
   composeMaximize,
-  composeClose
+  composeClose,
+  composeChange
 }
 
 export default (
