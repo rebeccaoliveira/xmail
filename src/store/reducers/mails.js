@@ -2,6 +2,8 @@ import {
   MAIL_ADD
 } from '../types'
 
+const date = new Date().toLocaleDateString()
+
 let id = 0;
 function createData(unread, fav, imp, title, content, date ) {
   id += 1;

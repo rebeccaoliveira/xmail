@@ -39,7 +39,7 @@ function TaskListTable({classes, important, unread, favorite, everything}) {
 
 
 const mapStateToProps = (state) => ({
-  important: state.mails.filter(mail => mail.unread && mail.imp).slice(0, 6),
+  important: state.mails.filter(mail => mail.unread && mail.imp).slice(0, 100),
   unread: state.mails.filter(mail => mail.unread && !mail.imp),
   favorite: state.mails.filter(mail => mail.fav && !mail.unread),
   everything: state.mails.filter(mail => !mail.fav && !mail.unread)

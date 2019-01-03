@@ -2,6 +2,12 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+//apps Import
+import { mailAdd } from '../../../store/actions/mails'
+import { clear } from '../../../store/actions/composeForm'
+import { composeDelete, composeClose } from '../../../store/actions/compose'
 
 // Package Imports
 import classNames from 'classnames'
@@ -42,7 +48,7 @@ const styles = theme => ({
   buttonIcon: {
     alignSelf: 'center',
     margin: 5,
-    color: 'grey'
+    color: 'grey',
   },
   buttonIconAction: {
     alignSelf: 'center',
@@ -50,12 +56,21 @@ const styles = theme => ({
   }
 });
 
-function MailSendBar(props) {
-  const { classes } = props;
+function MailSendBar({
+  classes, compose, mails, composeForm,
+  mailAdd, clear, composeDelete, composeClose
+  }) {
+  const sendMail = () => {
+    mailAdd(composeForm.to, composeForm.subject, composeForm.body)
+    clear()
+    composeClose()
+  }
   return (
     <Grid className={classes.container}>
       <Grid item className={classes.item}>
-        <Button color="primary" variant="contained" className={classes.buttonSend}>
+        <Button onClick={sendMail}
+          color="primary" variant="contained"
+          className={classes.buttonSend}>
           Send
         </Button>
         <div>
@@ -68,7 +83,7 @@ function MailSendBar(props) {
         </div>
       </Grid>
       <div className={classes.buttonIconAction}>
-        <DeleteIcon className={classes.buttonIcon} />
+        <DeleteIcon onClick={composeDelete} className={classes.buttonIcon} style={{cursor: 'pointer'}}/>
         <More className={classes.buttonIcon} />
       </div>
     </Grid>
@@ -79,4 +94,25 @@ MailSendBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailSendBar);
+const mapStateToProps = state => {
+  const { compose, mails, composeForm } = state
+  return ({
+    compose,
+    mails,
+    composeForm
+  })
+}
+
+const mapDispatchToProps = {
+  mailAdd,
+  clear,
+  composeDelete,
+  composeClose
+}
+
+
+export default (
+  connect(mapStateToProps, mapDispatchToProps)(
+    withStyles(styles)(MailSendBar)
+  )
+);

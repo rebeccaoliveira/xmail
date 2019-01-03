@@ -16,7 +16,7 @@ const composeForm = (state = composeInitialState, action) => {
       newState[action.payload.component] = action.payload.value
       return newState
     case COMPOSE_FORM_CLEAR:
-      return { ...state }
+      return composeInitialState
     default:
       return state
   }
