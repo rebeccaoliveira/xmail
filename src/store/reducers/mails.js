@@ -2,8 +2,6 @@ import {
   MAIL_ADD
 } from '../types'
 
-const date = new Date().toLocaleDateString()
-
 let id = 0;
 function createData(unread, fav, imp, title, content, date ) {
   id += 1;
@@ -35,7 +33,8 @@ const mails = (state = mailsInitialState, action) => {
   switch (action.type) {
     case MAIL_ADD:
       const payloadMail = action.payload.mail
-      return [...state, {...payloadMail, unread: true, imp: true}]
+      const date = new Date().toLocaleDateString('en', {month:"short", day:"2-digit"})
+      return [...state, {...payloadMail, unread: true, imp: true, date}]
     default:
       return state
   }
