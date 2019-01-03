@@ -178,9 +178,9 @@ function MailboxCompose({
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} />
-            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
-            <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
+            <Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize}  style={{cursor: 'pointer'}}/>
+            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} style={{cursor: 'pointer'}} />
+            <Clear className={classes.icon} fontSize="small" onClick={composeClose} style={{cursor: 'pointer'}} />
           </div>
         </Grid>
       </Grid>

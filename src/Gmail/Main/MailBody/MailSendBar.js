@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 //apps Import
 import { mailAdd } from '../../../store/actions/mails'
 import { clear } from '../../../store/actions/composeForm'
-import { composeDelete, composeClose } from '../../../store/actions/compose'
+import { composeClose } from '../../../store/actions/compose'
 
 // Package Imports
 import classNames from 'classnames'
@@ -58,11 +58,15 @@ const styles = theme => ({
 
 function MailSendBar({
   classes, compose, mails, composeForm,
-  mailAdd, clear, composeDelete, composeClose
+  mailAdd, clear, composeClose
   }) {
   const sendMail = () => {
     mailAdd(composeForm.to, composeForm.subject, composeForm.body)
     clear()
+    composeClose()
+  }
+  const closeMail = () => {
+    clear(composeForm.to, composeForm.subject, composeForm.body)
     composeClose()
   }
   return (
@@ -83,7 +87,7 @@ function MailSendBar({
         </div>
       </Grid>
       <div className={classes.buttonIconAction}>
-        <DeleteIcon onClick={composeDelete} className={classes.buttonIcon} style={{cursor: 'pointer'}}/>
+        <DeleteIcon onClick={closeMail} className={classes.buttonIcon} style={{cursor: 'pointer'}}/>
         <More className={classes.buttonIcon} />
       </div>
     </Grid>
@@ -106,7 +110,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   mailAdd,
   clear,
-  composeDelete,
   composeClose
 }
 

@@ -90,9 +90,9 @@ function MinimizedMailBoxCompose({classes, compose, composeOpen, composeMaximize
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <Maximize className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} />
-            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} />
-            <Clear className={classes.icon} fontSize="small" onClick={composeClose} />
+            <Maximize className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} style={{cursor: 'pointer'}} />
+            <Launch className={classNames(classes.icon)} fontSize="small" onClick={composeMaximize} style={{cursor: 'pointer'}} />
+            <Clear className={classes.icon} fontSize="small" onClick={composeClose} style={{cursor: 'pointer'}} />
           </div>
         </Grid>
       </Grid>

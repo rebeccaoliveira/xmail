@@ -168,9 +168,9 @@ function ModalMailBoxCompose({classes, compose, composeMinimize, composeOpen, co
         </Grid>
         <Grid item xs={6} className={classes.gridIcons}>
           <div>
-            <a><Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize} /></a>
-            <a><Launch className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} /></a>
-            <a><Clear className={classes.icon} fontSize="small" onClick={composeClose} /></a>
+            <a><Minimize className={classNames(classes.icon)} fontSize="small" onClick={composeMinimize}  style={{cursor: 'pointer'}}/></a>
+            <a><Launch className={classNames(classes.icon)} fontSize="small" onClick={composeOpen} style={{cursor: 'pointer'}} /></a>
+            <a><Clear className={classes.icon} fontSize="small" onClick={composeClose} style={{cursor: 'pointer'}} /></a>
           </div>
         </Grid>
       </Grid>
