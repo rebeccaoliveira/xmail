@@ -1,9 +1,8 @@
-// This file have all components of "Mail" part of the system
-// Title / From -(Owner of email) / Action buttons / Mail Content for reply / Relpy Actions
 
 // React Imports
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Route, Link, Redirect } from "react-router-dom"
 
 // Package Imports
 import { withStyles } from '@material-ui/core/styles'
@@ -18,6 +17,9 @@ import MailOwnerBar from './MailOwnerBar'
 import MailReply from './MailReply'
 import MailReplyButton from './MailReplyButton'
 import MailTextBody from './MailTextBody'
+import {
+  withRouter
+} from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -32,10 +34,10 @@ const styles = theme => ({
 })
 
 function MailContent(props) {
-  const { classes } = props;
+  const { classes, history } = props;
   return (
     <>
-      <MailBar />
+      <MailBar history={history} />
       <Divider />
       <Grid container className={classes.root}>
         <MailTitle />
@@ -53,4 +55,4 @@ MailContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MailContent);
+export default withStyles(styles)(withRouter(MailContent));

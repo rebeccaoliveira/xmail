@@ -24,8 +24,7 @@ const styles = theme => ({
   },
 });
 
-function MailTitle(props) {
-  const { classes } = props;
+function MailTitle({classes}) {
   return (
     <Grid container>
       <Grid item xs={1} />
@@ -47,5 +46,6 @@ function MailTitle(props) {
 MailTitle.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 
 export default withStyles(styles)(MailTitle);

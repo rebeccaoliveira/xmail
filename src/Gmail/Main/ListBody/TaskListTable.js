@@ -3,9 +3,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
+import { Route, Link, Redirect } from "react-router-dom"
 
+//Component
 import TaskBarShow from './TaskBarShow'
 import MailSection from './MailSection'
+import MailContent from '../MailBody'
+
 
 const styles = theme => ({
   // Table css

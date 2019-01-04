@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Gmail from './Gmail/index';
+import { BrowserRouter as Router} from "react-router-dom"
 
 import CssBaseline from './config/CssBaseline'
 import ThemeProvider from './config/ThemeProvider'
@@ -12,13 +13,15 @@ const store = configureStore()
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <CssBaseline />
-        <ThemeProvider>
-          <Gmail />
-        </ThemeProvider>
-        <AppResize />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <CssBaseline />
+          <ThemeProvider>
+            <Gmail />
+          </ThemeProvider>
+          <AppResize />
+        </Provider>
+      </Router>
     );
   }
 }

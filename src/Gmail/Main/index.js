@@ -12,12 +12,15 @@ import { withStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 import { Route } from "react-router-dom"
-import { Link } from "react-router-dom"
 
 //Components
 import ListBody from './ListBody'
 import MailBody from './MailBody'
 import MailContentMobile from './MailBody/MailContentMobile'
+import {
+  withRouter
+} from 'react-router-dom'
+import { BrowserRouter as Router} from "react-router-dom"
 
 
 const styles = theme => ({
@@ -43,20 +46,29 @@ const styles = theme => ({
     },
   }
 })
-const Main = ({classes, drawer, compose}) => {
-  const { device, winState } = compose
 
+// {(device === "mobile" && winState === "open") ? <MailContentMobile /> : <ListBody />}
+
+const Main = ({classes, drawer, compose, history}) => {
+  const { device, winState } = compose
   return (
-    <Grid
-      className={classNames(classes.container, {
-        [classes.containerDrawerOpen]: drawer.open,
-        [classes.containerDrawerClosed]: !drawer.open,
-      })}
-      open={drawer.open}
-      >
-      <div className={classes.toolbar} />
-      {(device === "mobile" && winState === "open") ? <MailContentMobile /> : <ListBody />}
-    </Grid>
+    <Router>
+      <Grid
+        className={classNames(classes.container, {
+          [classes.containerDrawerOpen]: drawer.open,
+          [classes.containerDrawerClosed]: !drawer.open,
+        })}
+        open={drawer.open}
+        >
+        <div className={classes.toolbar} />
+        <Route exact path='/mails' render={(props) => {
+            return (device === "mobile" && winState === "open") ? <MailContentMobile /> : <ListBody />
+          }}
+        />
+
+        <Route path='/mails/:id' component={MailBody} />
+      </Grid>
+    </Router>
   )
 }
 
@@ -73,5 +85,5 @@ const mapDispatchToProps = {
 }
 
 export default withStyles(styles)(
-  connect(mapStateToProps)(Main)
+  connect(mapStateToProps)(withRouter(Main))
 )

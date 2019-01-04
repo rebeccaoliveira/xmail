@@ -34,7 +34,8 @@ const mails = (state = mailsInitialState, action) => {
     case MAIL_ADD:
       const payloadMail = action.payload.mail
       const date = new Date().toLocaleDateString('en', {month:"short", day:"2-digit"})
-      return [...state, {...payloadMail, unread: true, imp: true, date}]
+      const id = Date.now()
+      return [...state, {...payloadMail, id, date, unread: true, imp: true}]
     default:
       return state
   }

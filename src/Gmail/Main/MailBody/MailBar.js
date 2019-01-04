@@ -40,11 +40,11 @@ const styles = theme => ({
 
 class MailBar extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, history } = this.props;
     return (
         <Grid container>
           <Grid item className={classes.container}>
-            <IconButton className={classes.button} data-tooltip="Back" aria-label="back">
+            <IconButton className={classes.button} data-tooltip="Back" aria-label="back" onClick={() => history.push('/mails')}>
               <ArrowBack fontSize="default" />
             </IconButton>
             <IconButton className={classes.button} data-tooltip="File" aria-label="file">

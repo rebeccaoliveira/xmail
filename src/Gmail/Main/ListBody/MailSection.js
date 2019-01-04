@@ -2,6 +2,11 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom"
+import {
+  withRouter
+} from 'react-router-dom'
+
 
 // Package Imports
 import { connect } from 'react-redux'
@@ -38,9 +43,9 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import TaskListTitle from './TaskListTitle'
 import TaskBarShow from './TaskBarShow'
 
+
 const styles = theme => ({
 
-// Table css
   root: {
     paddingLeft: 0,
     float: 'right',
@@ -61,7 +66,6 @@ const styles = theme => ({
     flexDirection: 'column',
     width: '100%',
   },
-  //css in elements (button / input / checkbox)
   button: {
     color: 'black',
     margin: 0,
@@ -93,8 +97,8 @@ const styles = theme => ({
   checked: {
     opacity: 0.6,
   },
-  // All css elemnts aplied in a Row
   row: {
+    cursor: 'pointer',
     height: 27,
     minHeight: 27,
     maxHeight: 10,
@@ -166,7 +170,6 @@ const styles = theme => ({
       height: '100%',
     }
   },
-  // Css in a cel button (td)
   td: {
     height: 20,
     maxHeight: 20,
@@ -226,7 +229,6 @@ const styles = theme => ({
     paddingLeft: 10,
 
   },
-  //text content config
   wrapText: {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -234,16 +236,16 @@ const styles = theme => ({
   },
 });
 
-const MailSection = ({classes, mails, title, drawer}) => (
+const MailSection = ({classes, mails, title, drawer, history}) => (
   <div className={classes.container}>
     <TaskListTitle title={title} />
     <Divider />
     <Grid container className={classes.root}>
-      <Table className={classes.table}>
+      <Table className={classes.table} style={{cursor: 'pointer'}}>
         <TableBody className={classes.tableBody}>
           {mails.map(row => {
             return (
-            <TableRow key={row.id} className={classes.row}>
+            <TableRow key={row.id} onClick={() => history.push(`/mails/${row.id}`)} className={classes.row}>
               <TableCell className={classNames(classes.tdButton, classes.tdCheckbox)} >
                 <Checkbox classes={{
                   root: classes.checkbox,
@@ -312,4 +314,4 @@ const MailSection = ({classes, mails, title, drawer}) => (
 );
 
 
-export default withStyles(styles)(MailSection);
+export default withStyles(styles)(withRouter(MailSection));
