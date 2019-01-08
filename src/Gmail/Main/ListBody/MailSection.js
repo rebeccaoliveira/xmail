@@ -245,7 +245,7 @@ const MailSection = ({classes, mails, title, drawer, history}) => (
         <TableBody className={classes.tableBody}>
           {mails.map(row => {
             return (
-            <TableRow key={row.id} onClick={() => history.push(`/mails/${row.id}`)} className={classes.row}>
+            <TableRow key={row.id} className={classes.row}>
               <TableCell className={classNames(classes.tdButton, classes.tdCheckbox)} >
                 <Checkbox classes={{
                   root: classes.checkbox,
@@ -272,12 +272,13 @@ const MailSection = ({classes, mails, title, drawer, history}) => (
                   }
                 />
               </TableCell>
-              <TableCell className={classes.tdTitle} style={{fontWeight: (row.unread ? '500' : 'normal')}}>
+              <TableCell onClick={() => history.push(`/mails/${row.id}`)} className={classes.tdTitle} style={{fontWeight: (row.unread ? '500' : 'normal')}}>
                 {row.title}
               </TableCell>
               <Hidden xsDown>
 
                 <TableCell
+                  onClick={() => history.push(`/mails/${row.id}`)}
                   className={classNames(classes.td, classes.tdContent)}
                   style={{fontWeight: (row.unread ? '500' : 'normal')}}
                   >

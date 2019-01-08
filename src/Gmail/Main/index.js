@@ -61,7 +61,7 @@ const Main = ({classes, drawer, compose, history}) => {
         open={drawer.open}
         >
         <div className={classes.toolbar} />
-        <Route exact path='/mails' render={(props) => {
+        <Route exact path='/' render={(props) => {
             return (device === "mobile" && winState === "open") ? <MailContentMobile /> : <ListBody />
           }}
         />

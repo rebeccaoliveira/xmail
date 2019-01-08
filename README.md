@@ -20,23 +20,23 @@ The steps that are finished, has the screenshot on next section
 - [x] Hamburger menu to control the drawer
 - [x] Compose a "real" email
 - [x] Send bar being able to send or delete an email
-- [ ] Toolbar in mail list being able to archive, read, delete and snooze
+- [ ] Optimize performance
 - [ ] Improve code coverage, and build on Travis
 - [ ] Split into small reusable components
 
 ### Mail list view
 
-![List Emails](../screens/img01.png)
+![List Emails](./src/screens/img01.png)
 
 ### Compose email
-![Email Compose](../screens/img02.png)
+![Email Compose](./src/screens/img02.png)
 
 ### Opened email
 
-![Opened Email](../screens/img03.png)
+![Opened Email](./src/screens/img03.png)
 
 ### Reply email
-![Reply Email](../screens/img04.png)
+![Reply Email](./src/screens/img04.png)
 
 ### Tecnologies
 
