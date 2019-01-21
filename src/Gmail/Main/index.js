@@ -52,7 +52,7 @@ const styles = theme => ({
 const Main = ({classes, drawer, compose, history}) => {
   const { device, winState } = compose
   return (
-    <Router>
+    <Router basename='/xmail'>
       <Grid
         className={classNames(classes.container, {
           [classes.containerDrawerOpen]: drawer.open,

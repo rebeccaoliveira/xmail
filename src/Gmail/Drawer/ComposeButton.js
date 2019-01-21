@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
+import Fab from '@material-ui/core/Fab'
 import classNames from 'classnames'
 import keyframes from 'jss-keyframes'
 
@@ -112,10 +112,10 @@ spanClose: {
 function ComposeButton({classes, drawer, composeOpen}) {
   return (
     <div className={classes.buttonDiv}>
-      <Button
+      <Fab
+        data-testid="compose-button"
         onClick={composeOpen}
-
-        variant="extendedFab"
+        variant="extended"
         className={classNames(classes.button, classes.label, {
           [classes.composeOpen]: drawer.open,
           [classes.composeClose]: !drawer.open,
@@ -133,7 +133,7 @@ function ComposeButton({classes, drawer, composeOpen}) {
             [classes.spanClose]: !drawer.open,
           })}>Compose</span>
         </div>
-      </Button>
+      </Fab>
     </div>
   );
 }
