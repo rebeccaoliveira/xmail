@@ -90,6 +90,7 @@ const styles = theme => ({
 
 const Drawer = ({classes, drawer}) => (
   <MaterialDrawer
+    data-testid="open-drawer"
     variant="permanent"
     classes={{
       paper: classNames(classes.drawerPaper, {
