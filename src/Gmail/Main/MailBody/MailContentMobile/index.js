@@ -5,10 +5,6 @@
 // React Imports
 import React from 'react'
 import PropTypes from 'prop-types'
-
-//apps Imports
-import { composeOpen } from '../../../../store/actions/compose'
-
 // Package Imports
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
@@ -18,11 +14,6 @@ import Grid from '@material-ui/core/Grid'
 
 // App Imports
 import MailBar from '../MailBar'
-import MailTitle from '../MailTitle'
-import MailOwnerBar from '../MailOwnerBar'
-import MailReply from '../MailReply'
-import MailReplyButton from '../MailReplyButton'
-import MailTextBody from '../MailTextBody'
 import MailBoxComposeMobile from './MailBoxComposeMobile'
 
 const styles = theme => ({

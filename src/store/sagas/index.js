@@ -1,7 +1,7 @@
 // Package Imports
-import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import { snackbarActions as snackbar } from 'material-ui-snackbar-redux'
-import { stopSubmit, clearFields } from 'redux-form'
+import { stopSubmit } from 'redux-form'
 
 function* showSnackbar(action) {
   try {

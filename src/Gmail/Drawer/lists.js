@@ -8,20 +8,18 @@ import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
 import Hidden from '@material-ui/core/Hidden';
 
 //icons
 import DeleteIcon from '@material-ui/icons/Delete'
 import DraftsIcon from '@material-ui/icons/Drafts'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
-import SendIcon from '@material-ui/icons/Send'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import Time from '@material-ui/icons/AccessTime'
 import LabelIcon from '@material-ui/icons/LabelImportant'
 import DescriptionIcon from '@material-ui/icons/Description'
 import Label from '@material-ui/icons/Label'
+import SendIcon from '@material-ui/icons/Send'
 
 // Components Imports
 import ComposeButton from './ComposeButton'
@@ -96,7 +94,6 @@ const styles = theme => ({
     height: 80,
     [theme.breakpoints.down('sm')]: {
       zIndex: 1,
-
     },
   },
 });
@@ -116,8 +113,7 @@ const menuItems = [
 function SimpleList({classes, drawer}) {
   return (
     <>
-      <div className={classes.root}>
-
+      <div className={classes.root} data-testid="list">
         <Hidden smDown>
           <div className={classes.divCompose}>
             <ComposeButton />

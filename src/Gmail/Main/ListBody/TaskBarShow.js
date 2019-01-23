@@ -111,7 +111,6 @@ class ShowTaskBar extends React.Component {
   render() {
     const { anchorEl } = this.state;
     const { classes } = this.props;
-    const open = Boolean(anchorEl);
 
     return (
       <Grid container className={classes.container}>

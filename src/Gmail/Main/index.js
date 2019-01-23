@@ -1,6 +1,5 @@
 // React Imports
 import React from 'react'
-import PropTypes from 'prop-types'
 
 //apps Imports
 import { isMobile } from '../../store/actions'
@@ -9,7 +8,6 @@ import { isMobile } from '../../store/actions'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
-import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 import { Route } from "react-router-dom"
 
@@ -78,10 +76,6 @@ const mapStateToProps = state => {
     drawer,
     compose
   })
-}
-
-const mapDispatchToProps = {
-  isMobile,
 }
 
 export default withStyles(styles)(

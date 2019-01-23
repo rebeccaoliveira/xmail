@@ -10,10 +10,8 @@ import { clear } from '../../../store/actions/composeForm'
 import { composeClose } from '../../../store/actions/compose'
 
 // Package Imports
-import classNames from 'classnames'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
 
 // Icons
 import DeleteIcon from '@material-ui/icons/Delete'

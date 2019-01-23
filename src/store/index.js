@@ -1,6 +1,3 @@
-// React Imports
-import React from 'react'
-import ReactDOM from 'react-dom'
 
 // Packages Import
 import { applyMiddleware, compose, createStore } from 'redux'
